@@ -175,6 +175,18 @@ def cuda(model="unknown", options=None):
     opts = _merge_opts(["-model=%s" % model], options)
     return Target(" ".join(["cuda"] + opts))
 
+def mlir(model="unknown", options=None):
+    """Returns a mlir target.
+
+    Parameters
+    ----------
+    model: str
+        The model of mlir dialect (e.g. affine/std/)
+    options : str or list of str
+        Additional options
+    """
+    opts = _merge_opts(["-model=%s" % model], options)
+    return Target(" ".join(["mlir"] + opts))
 
 def rocm(model="unknown", options=None):
     """Returns a ROCM target.
